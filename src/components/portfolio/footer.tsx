@@ -91,7 +91,7 @@ export function Footer({
                 href={item.href}
                 target={item.href.startsWith('http') ? '_blank' : undefined}
                 rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-[var(--primary)]/30 bg-[var(--muted)] text-[var(--foreground)]/84 transition hover:bg-[var(--primary)] hover:text-[var(--foreground)]"
+                className="inline-flex h-11 w-11 items-center justify-center rounded-md border border-[var(--primary)]/30 bg-[var(--muted)] text-[var(--foreground)]/84 transition hover:bg-[var(--primary)] hover:text-[var(--foreground)]"
                 aria-label={item.label}
               >
                 <item.icon className="h-4 w-4" />

@@ -21,6 +21,17 @@ export function DetailModal({ open, detail, onClose }: DetailModalProps) {
     return () => document.removeEventListener('keydown', onKeyDown);
   }, [open, onClose]);
 
+  useEffect(() => {
+    if (!open) return;
+
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    return () => {
+      document.body.style.overflow = originalOverflow;
+    };
+  }, [open]);
+
   return (
     <AnimatePresence>
       {open && detail ? (
@@ -60,7 +71,7 @@ export function DetailModal({ open, detail, onClose }: DetailModalProps) {
               <button
                 type="button"
                 onClick={onClose}
-                className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-[var(--primary)]/35 text-[var(--foreground)]/80 transition hover:border-[var(--secondary)]/50 hover:text-[var(--secondary)]"
+                className="inline-flex h-11 w-11 items-center justify-center rounded-md border border-[var(--primary)]/35 text-[var(--foreground)]/80 transition hover:border-[var(--secondary)]/50 hover:text-[var(--secondary)]"
                 aria-label="Close details"
               >
                 <X className="h-4 w-4" />

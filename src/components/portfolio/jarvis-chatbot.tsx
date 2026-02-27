@@ -101,7 +101,7 @@ export function MbatshiAIChatbot() {
   };
 
   return (
-    <div className="fixed bottom-[max(1rem,env(safe-area-inset-bottom))] right-3 z-[90] sm:right-5">
+    <div className="fixed bottom-[max(1rem,env(safe-area-inset-bottom))] right-[max(0.75rem,env(safe-area-inset-right))] z-[90] sm:right-5">
       <AnimatePresence>
         {isOpen ? (
           <motion.div
@@ -124,7 +124,7 @@ export function MbatshiAIChatbot() {
               <button
                 type="button"
                 onClick={() => setIsOpen(false)}
-                className="inline-flex h-7 w-7 items-center justify-center rounded-md border border-[var(--primary)]/30 text-[var(--foreground)]/80 transition hover:text-[var(--secondary)]"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-[var(--primary)]/30 text-[var(--foreground)]/80 transition hover:text-[var(--secondary)]"
                 aria-label="Close Mbatshi AI chat"
               >
                 <X className="h-4 w-4" />
@@ -150,7 +150,7 @@ export function MbatshiAIChatbot() {
               ))}
 
               {isLoading ? (
-                <div className="mr-6 inline-flex items-center gap-2 rounded-xl border border-[var(--primary)]/24 bg-[var(--muted)]/78 px-3 py-2 text-sm text-[var(--muted-foreground)]">
+                <div className="mr-3 inline-flex items-center gap-2 rounded-xl border border-[var(--primary)]/24 bg-[var(--muted)]/78 px-3 py-2 text-sm text-[var(--muted-foreground)] sm:mr-6">
                   <Loader2 className="h-4 w-4 animate-spin" />
                   Mbatshi AI is thinking...
                 </div>
@@ -160,7 +160,7 @@ export function MbatshiAIChatbot() {
             </div>
 
             <div className="border-t border-[var(--primary)]/24 px-4 py-3">
-              <div className="mb-3 flex flex-wrap gap-2">
+              <div className="mb-3 hidden flex-wrap gap-2 sm:flex">
                 {quickPrompts.map((prompt) => (
                   <button
                     key={prompt}
@@ -179,13 +179,13 @@ export function MbatshiAIChatbot() {
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   placeholder="Ask Mbatshi AI about Mbatshi..."
-                  className="h-10 w-full rounded-md border border-[var(--primary)]/30 bg-[var(--muted)] px-3 text-sm text-[var(--foreground)] outline-none transition focus:border-[var(--secondary)]/65"
+                  className="h-11 w-full rounded-md border border-[var(--primary)]/30 bg-[var(--muted)] px-3 text-sm text-[var(--foreground)] outline-none transition focus:border-[var(--secondary)]/65 sm:h-10"
                   aria-label="Ask Mbatshi AI"
                 />
                 <button
                   type="submit"
                   disabled={!canSend}
-                  className="inline-flex h-10 w-10 items-center justify-center rounded-md bg-[var(--primary)] text-[var(--foreground)] transition hover:bg-[var(--accent)] disabled:cursor-not-allowed disabled:opacity-45"
+                  className="inline-flex h-11 w-11 items-center justify-center rounded-md bg-[var(--primary)] text-[var(--foreground)] transition hover:bg-[var(--accent)] disabled:cursor-not-allowed disabled:opacity-45 sm:h-10 sm:w-10"
                   aria-label="Send message"
                 >
                   <Send className="h-4 w-4" />
@@ -201,11 +201,11 @@ export function MbatshiAIChatbot() {
       <button
         type="button"
         onClick={() => setIsOpen((prev) => !prev)}
-        className="inline-flex items-center gap-2 rounded-full border border-[var(--primary)]/45 bg-[var(--card)]/92 px-4 py-2.5 text-sm text-[var(--foreground)]/92 shadow-lg backdrop-blur-md transition hover:border-[var(--secondary)]/60 hover:text-[var(--secondary)]"
+        className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[var(--primary)]/45 bg-[var(--card)]/92 text-sm text-[var(--foreground)]/92 shadow-lg backdrop-blur-md transition hover:border-[var(--secondary)]/60 hover:text-[var(--secondary)] sm:h-auto sm:w-auto sm:gap-2 sm:px-4 sm:py-2.5"
         aria-label="Open Mbatshi AI chat"
       >
         <MessageCircle className="h-4 w-4" />
-        Mbatshi AI
+        <span className="hidden sm:inline">Mbatshi AI</span>
       </button>
     </div>
   );

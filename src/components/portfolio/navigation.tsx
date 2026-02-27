@@ -31,6 +31,28 @@ export function Navigation() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  useEffect(() => {
+    if (!isMobileMenuOpen) return;
+
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    return () => {
+      document.body.style.overflow = originalOverflow;
+    };
+  }, [isMobileMenuOpen]);
+
+  useEffect(() => {
+    const onResize = () => {
+      if (window.innerWidth >= 1024) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    window.addEventListener('resize', onResize, { passive: true });
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
+
   const handleNavClick = (id: string) => {
     scrollToSection(id);
     setIsMobileMenuOpen(false);
@@ -82,8 +104,10 @@ export function Navigation() {
         <button
           type="button"
           onClick={() => setIsMobileMenuOpen((prev) => !prev)}
-          className="ml-auto inline-flex h-10 w-10 items-center justify-center rounded-md border border-[rgba(0,128,77,0.3)] bg-[rgba(17,24,20,0.6)] text-[var(--foreground)] lg:hidden"
+          className="ml-auto inline-flex h-11 w-11 items-center justify-center rounded-md border border-[rgba(0,128,77,0.3)] bg-[rgba(17,24,20,0.6)] text-[var(--foreground)] lg:hidden"
           aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={isMobileMenuOpen}
+          aria-controls="mobile-navigation-menu"
         >
           {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
@@ -92,6 +116,7 @@ export function Navigation() {
       <AnimatePresence>
         {isMobileMenuOpen ? (
           <motion.nav
+            id="mobile-navigation-menu"
             initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
@@ -109,7 +134,7 @@ export function Navigation() {
                   <button
                     type="button"
                     onClick={() => handleNavClick(item.id)}
-                    className="w-full rounded-lg px-3 py-2 text-left text-base text-[var(--foreground)]/90 transition hover:bg-[rgba(0,128,77,0.16)]"
+                    className="w-full rounded-lg px-3 py-2.5 text-left text-base text-[var(--foreground)]/90 transition hover:bg-[rgba(0,128,77,0.16)]"
                   >
                     {item.label}
                   </button>

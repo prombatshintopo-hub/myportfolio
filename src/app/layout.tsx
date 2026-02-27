@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Manrope, Syne } from 'next/font/google';
 import '@/styles/globals.css';
 import { person } from '@/lib/content';
@@ -34,6 +34,13 @@ export const metadata: Metadata = {
     index: true,
     follow: true
   }
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  viewportFit: 'cover',
+  themeColor: '#0a0f0d'
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
