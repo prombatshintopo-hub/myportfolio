@@ -42,7 +42,7 @@ export function HeroSection({
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_18%,rgba(0,128,77,0.22),transparent_38%),radial-gradient(circle_at_88%_14%,rgba(212,175,55,0.16),transparent_42%)]" />
       <div className="absolute inset-0 bg-[linear-gradient(160deg,rgba(10,15,13,0.88),rgba(16,25,21,0.86)_54%,rgba(10,17,15,0.9))]" />
 
-      <div className="relative mx-auto grid min-h-screen max-w-7xl items-center gap-10 px-6 pb-24 pt-28 sm:px-8 lg:grid-cols-[1.08fr_0.92fr] lg:px-12">
+      <div className="relative mx-auto grid min-h-[100svh] max-w-7xl items-center gap-9 px-4 pb-20 pt-24 sm:px-8 sm:pb-24 sm:pt-28 lg:grid-cols-[1.08fr_0.92fr] lg:px-12">
         <div>
           <motion.p
             initial={{ opacity: 0, y: 30 }}
@@ -57,7 +57,7 @@ export function HeroSection({
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.1, ease: 'easeOut' }}
-            className="mt-4 max-w-4xl font-display text-5xl leading-[0.96] text-[var(--foreground)] sm:text-6xl lg:text-8xl"
+            className="mt-4 max-w-4xl font-display text-4xl leading-[0.96] text-[var(--foreground)] sm:text-6xl lg:text-8xl"
           >
             {firstName}
             <span className="block text-[var(--primary)]">{lastName}</span>
@@ -76,25 +76,25 @@ export function HeroSection({
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.35, ease: 'easeOut' }}
-            className="mt-10 flex flex-wrap items-center gap-4"
+            className="mt-8 flex flex-wrap items-center gap-3 sm:mt-10 sm:gap-4"
           >
             <button
               type="button"
               onClick={() => scrollToSection('projects')}
-              className="inline-flex items-center gap-2 rounded-md bg-[var(--primary)] px-8 py-4 text-sm font-medium text-[var(--foreground)] transition hover:scale-105 hover:bg-[var(--accent)]"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-[var(--primary)] px-6 py-3.5 text-sm font-medium text-[var(--foreground)] transition hover:scale-105 hover:bg-[var(--accent)] sm:w-auto sm:px-8 sm:py-4"
             >
               View Work
               <ArrowRight className="h-4 w-4" />
             </button>
             <a
               href={`mailto:${email}`}
-              className="inline-flex items-center gap-2 rounded-md border border-[var(--secondary)]/75 px-8 py-4 text-sm font-medium text-[var(--secondary)] transition hover:scale-105 hover:bg-[var(--secondary)]/15"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-md border border-[var(--secondary)]/75 px-6 py-3.5 text-sm font-medium text-[var(--secondary)] transition hover:scale-105 hover:bg-[var(--secondary)]/15 sm:w-auto sm:px-8 sm:py-4"
             >
               Get In Touch
             </a>
             <a
               href={resumeUrl}
-              className="inline-flex items-center gap-2 rounded-md border border-[var(--primary)]/50 px-8 py-4 text-sm font-medium text-[var(--foreground)]/90 transition hover:scale-105 hover:bg-[var(--primary)]/14"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-md border border-[var(--primary)]/50 px-6 py-3.5 text-sm font-medium text-[var(--foreground)]/90 transition hover:scale-105 hover:bg-[var(--primary)]/14 sm:w-auto sm:px-8 sm:py-4"
             >
               Download CV
               <Download className="h-4 w-4" />
@@ -106,14 +106,14 @@ export function HeroSection({
           initial={{ opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2, ease: 'easeOut' }}
-          className="rounded-[10px] border border-[var(--primary)]/26 bg-[var(--card)]/78 p-6 backdrop-blur-md sm:p-7"
+          className="rounded-[10px] border border-[var(--primary)]/26 bg-[var(--card)]/78 p-5 backdrop-blur-md sm:p-7"
         >
-          <div className="relative mb-5 h-56 overflow-hidden rounded-[10px] border border-[var(--primary)]/30 sm:h-64">
+          <div className="relative mb-5 h-52 overflow-hidden rounded-[10px] border border-[var(--primary)]/30 sm:h-64">
             <Image
               src="/images/mbatshi-quick-profile.jpg"
               alt={`${name} professional portrait`}
               fill
-              sizes="(min-width: 1024px) 38vw, 92vw"
+              sizes="(min-width: 1024px) 38vw, (min-width: 640px) 80vw, 92vw"
               className="object-cover object-[50%_12%]"
             />
             <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(10,15,13,0.5),rgba(10,15,13,0.06))]" />
@@ -126,7 +126,7 @@ export function HeroSection({
                 href={mapUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-1 inline-flex font-medium text-[var(--foreground)] transition hover:text-[var(--secondary)]"
+                className="mt-1 inline-flex break-words font-medium text-[var(--foreground)] transition hover:text-[var(--secondary)]"
               >
                 {location}
               </a>
@@ -137,7 +137,7 @@ export function HeroSection({
                 href={whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-1 inline-flex font-medium text-[var(--foreground)] transition hover:text-[var(--secondary)]"
+                className="mt-1 inline-flex break-words font-medium text-[var(--foreground)] transition hover:text-[var(--secondary)]"
               >
                 {phone} (WhatsApp)
               </a>
@@ -179,7 +179,7 @@ export function HeroSection({
           opacity: { duration: 1, delay: 1.5 },
           y: { duration: 1.5, repeat: Infinity, ease: 'easeInOut' }
         }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 rounded-full border border-[var(--secondary)]/35 bg-[rgba(10,15,13,0.5)] p-2 text-[var(--secondary)]"
+        className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 rounded-full border border-[var(--secondary)]/35 bg-[rgba(10,15,13,0.5)] p-2 text-[var(--secondary)] sm:inline-flex"
         aria-label="Scroll to about section"
       >
         <ChevronDown className="h-5 w-5" />

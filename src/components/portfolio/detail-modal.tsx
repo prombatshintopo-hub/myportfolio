@@ -28,7 +28,7 @@ export function DetailModal({ open, detail, onClose }: DetailModalProps) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[120] flex items-center justify-center bg-black/70 p-4 backdrop-blur-sm"
+          className="fixed inset-0 z-[120] flex items-center justify-center bg-black/70 p-3 sm:p-4 backdrop-blur-sm"
           onClick={onClose}
           role="dialog"
           aria-modal="true"
@@ -39,7 +39,7 @@ export function DetailModal({ open, detail, onClose }: DetailModalProps) {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 26, scale: 0.98 }}
             transition={{ duration: 0.22 }}
-            className="max-h-[88vh] w-full max-w-3xl overflow-y-auto rounded-[10px] border border-[var(--primary)]/30 bg-[var(--card)] p-6 shadow-2xl sm:p-8"
+            className="max-h-[88vh] w-full max-w-3xl overflow-y-auto rounded-[10px] border border-[var(--primary)]/30 bg-[var(--card)] p-5 shadow-2xl sm:p-8"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-start justify-between gap-4">
@@ -96,7 +96,7 @@ export function DetailModal({ open, detail, onClose }: DetailModalProps) {
             ) : null}
 
             {(detail.actions ?? []).length ? (
-              <div className="mt-6 flex flex-wrap gap-3">
+              <div className="mt-6 grid gap-3 sm:flex sm:flex-wrap">
                 {(detail.actions ?? []).map((action) => (
                   <a
                     key={`${action.label}-${action.href}`}
@@ -106,7 +106,7 @@ export function DetailModal({ open, detail, onClose }: DetailModalProps) {
                     onClick={() => {
                       if (!action.external) onClose();
                     }}
-                    className="inline-flex items-center gap-2 rounded-md border border-[var(--secondary)]/60 px-4 py-2 text-sm text-[var(--secondary)] transition hover:bg-[var(--secondary)]/15"
+                    className="inline-flex w-full items-center justify-center gap-2 rounded-md border border-[var(--secondary)]/60 px-4 py-2 text-sm text-[var(--secondary)] transition hover:bg-[var(--secondary)]/15 sm:w-auto"
                   >
                     {action.label}
                     <ArrowUpRight className="h-4 w-4" />

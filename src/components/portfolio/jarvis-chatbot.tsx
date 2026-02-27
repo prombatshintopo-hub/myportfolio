@@ -36,12 +36,16 @@ export function MbatshiAIChatbot() {
     try {
       if (sessionStorage.getItem(seenKey)) return;
       const timer = window.setTimeout(() => {
+        if (window.innerWidth < 768) return;
         setIsOpen(true);
         sessionStorage.setItem(seenKey, '1');
       }, 2200);
       return () => window.clearTimeout(timer);
     } catch {
-      const timer = window.setTimeout(() => setIsOpen(true), 2200);
+      const timer = window.setTimeout(() => {
+        if (window.innerWidth < 768) return;
+        setIsOpen(true);
+      }, 2200);
       return () => window.clearTimeout(timer);
     }
   }, []);
@@ -97,7 +101,7 @@ export function MbatshiAIChatbot() {
   };
 
   return (
-    <div className="fixed bottom-5 right-5 z-[90]">
+    <div className="fixed bottom-[max(1rem,env(safe-area-inset-bottom))] right-3 z-[90] sm:right-5">
       <AnimatePresence>
         {isOpen ? (
           <motion.div
@@ -105,7 +109,7 @@ export function MbatshiAIChatbot() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 12, scale: 0.98 }}
             transition={{ duration: 0.2 }}
-            className="mb-3 flex h-[min(84vh,620px)] w-[min(92vw,380px)] flex-col overflow-hidden rounded-[12px] border border-[var(--primary)]/35 bg-[var(--card)]/95 shadow-2xl backdrop-blur-lg"
+            className="mb-3 flex h-[min(78vh,560px)] w-[min(94vw,380px)] flex-col overflow-hidden rounded-[12px] border border-[var(--primary)]/35 bg-[var(--card)]/95 shadow-2xl backdrop-blur-lg sm:h-[min(84vh,620px)] sm:w-[min(92vw,380px)]"
           >
             <header className="flex items-center justify-between border-b border-[var(--primary)]/24 px-4 py-3">
               <div className="inline-flex items-center gap-2">
@@ -131,7 +135,7 @@ export function MbatshiAIChatbot() {
               {messages.map((message, index) => (
                 <div
                   key={`${message.role}-${index}-${message.content.slice(0, 16)}`}
-                  className={message.role === 'assistant' ? 'mr-6' : 'ml-6'}
+                  className={message.role === 'assistant' ? 'mr-3 sm:mr-6' : 'ml-3 sm:ml-6'}
                 >
                   <div
                     className={

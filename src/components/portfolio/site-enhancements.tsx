@@ -38,7 +38,7 @@ export function SiteEnhancements({ email, whatsapp, resumeUrl }: SiteEnhancement
         />
       </div>
 
-      <div className="fixed bottom-5 left-5 z-[60] flex flex-col items-start gap-2">
+      <div className="fixed bottom-[max(1rem,env(safe-area-inset-bottom))] left-4 z-[60] hidden flex-col items-start gap-2 sm:flex">
         <AnimatePresence>
           {isQuickActionsOpen ? (
             <motion.div

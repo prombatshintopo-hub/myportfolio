@@ -48,7 +48,7 @@ export function Navigation() {
           : 'border-transparent bg-transparent'
       )}
     >
-      <div className="mx-auto flex max-w-7xl items-center px-6 py-4">
+      <div className="mx-auto flex max-w-7xl items-center px-4 py-3 sm:px-6 sm:py-4 lg:px-12">
         <button
           type="button"
           onClick={() => handleNavClick('top')}
@@ -58,7 +58,7 @@ export function Navigation() {
           M<span className="text-[var(--primary)]">N</span>
         </button>
 
-        <nav className="ml-auto hidden items-center gap-7 text-sm md:flex">
+        <nav className="ml-auto hidden items-center gap-6 text-sm lg:flex">
           {navItems.map((item) => (
             <button
               key={item.id}
@@ -82,7 +82,7 @@ export function Navigation() {
         <button
           type="button"
           onClick={() => setIsMobileMenuOpen((prev) => !prev)}
-          className="ml-auto inline-flex h-10 w-10 items-center justify-center rounded-md border border-[rgba(0,128,77,0.3)] bg-[rgba(17,24,20,0.6)] text-[var(--foreground)] md:hidden"
+          className="ml-auto inline-flex h-10 w-10 items-center justify-center rounded-md border border-[rgba(0,128,77,0.3)] bg-[rgba(17,24,20,0.6)] text-[var(--foreground)] lg:hidden"
           aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
         >
           {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -96,7 +96,7 @@ export function Navigation() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.2 }}
-            className="mx-4 mb-4 rounded-xl border border-[rgba(0,128,77,0.32)] bg-[rgba(11,17,15,0.96)] p-4 md:hidden"
+            className="mx-4 mb-4 rounded-xl border border-[rgba(0,128,77,0.32)] bg-[rgba(11,17,15,0.96)] p-4 sm:mx-6 lg:hidden"
           >
             <ul className="space-y-2">
               {navItems.map((item, index) => (

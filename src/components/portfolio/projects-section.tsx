@@ -29,8 +29,8 @@ export function ProjectsSection({ projects, portfolioUrl, githubUrl }: ProjectsS
   }, [projects, portfolioUrl, githubUrl]);
 
   return (
-    <section id="projects" className="py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
+    <section id="projects" className="py-20 sm:py-28 lg:py-32">
+      <div className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-12">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -38,7 +38,7 @@ export function ProjectsSection({ projects, portfolioUrl, githubUrl }: ProjectsS
           className="max-w-3xl"
         >
           <p className="text-xs tracking-[0.2em] text-[var(--secondary)] uppercase">Projects</p>
-          <h2 className="mt-4 font-display text-4xl tracking-tight text-[var(--foreground)] sm:text-5xl">
+          <h2 className="mt-4 font-display text-3xl tracking-tight text-[var(--foreground)] sm:text-5xl">
             Selected Work
           </h2>
           <p className="mt-4 text-base leading-relaxed text-[var(--foreground)]/78">
@@ -46,7 +46,7 @@ export function ProjectsSection({ projects, portfolioUrl, githubUrl }: ProjectsS
           </p>
         </motion.div>
 
-        <div ref={ref} className="mt-12 space-y-12">
+        <div ref={ref} className="mt-10 space-y-8 sm:mt-12 sm:space-y-12">
           {projects.map((project, index) => {
             const isEven = index % 2 === 0;
             const { viewHref, sourceHref } = projectActions[project.id];
@@ -77,13 +77,13 @@ export function ProjectsSection({ projects, portfolioUrl, githubUrl }: ProjectsS
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.7, delay: index * 0.1 }}
-                className="grid gap-7 rounded-[10px] border border-[var(--primary)]/20 bg-[var(--card)]/72 p-5 backdrop-blur-md md:grid-cols-2 md:p-8"
+                className="grid gap-6 rounded-[10px] border border-[var(--primary)]/20 bg-[var(--card)]/72 p-4 backdrop-blur-md sm:p-5 lg:grid-cols-2 lg:p-8"
               >
-                <div className={isEven ? 'md:order-1' : 'md:order-2'}>
+                <div className={isEven ? 'lg:order-1' : 'lg:order-2'}>
                   <button
                     type="button"
                     onClick={openProjectDetail}
-                    className="relative flex h-full min-h-[280px] w-full flex-col justify-between overflow-hidden rounded-[10px] border border-[var(--primary)]/24 bg-[linear-gradient(160deg,#111a16,#0d1512_56%,#0b120f)] p-6 text-left transition hover:border-[var(--secondary)]/45"
+                    className="relative flex h-full min-h-[240px] w-full flex-col justify-between overflow-hidden rounded-[10px] border border-[var(--primary)]/24 bg-[linear-gradient(160deg,#111a16,#0d1512_56%,#0b120f)] p-5 text-left transition hover:border-[var(--secondary)]/45 sm:min-h-[280px] sm:p-6"
                   >
                     <div className="absolute -right-10 -top-12 h-40 w-40 rounded-full bg-[var(--secondary)]/14 blur-2xl" />
                     <div className="absolute -bottom-10 -left-6 h-44 w-44 rounded-full bg-[var(--primary)]/20 blur-2xl" />
@@ -112,7 +112,7 @@ export function ProjectsSection({ projects, portfolioUrl, githubUrl }: ProjectsS
                   </button>
                 </div>
 
-                <div className={isEven ? 'md:order-2' : 'md:order-1'}>
+                <div className={isEven ? 'lg:order-2' : 'lg:order-1'}>
                   <p className="text-xs tracking-[0.18em] text-[var(--secondary)] uppercase">
                     {project.status ?? 'Project'}
                   </p>
@@ -135,12 +135,12 @@ export function ProjectsSection({ projects, portfolioUrl, githubUrl }: ProjectsS
                     ))}
                   </div>
 
-                  <div className="mt-6 flex flex-wrap gap-3">
+                  <div className="mt-6 grid gap-3 sm:flex sm:flex-wrap">
                     <a
                       href={viewHref}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 rounded-md border border-[var(--secondary)]/55 px-4 py-2 text-sm text-[var(--secondary)] transition hover:scale-105 hover:bg-[var(--secondary)]/15"
+                      className="inline-flex w-full items-center justify-center gap-2 rounded-md border border-[var(--secondary)]/55 px-4 py-2 text-sm text-[var(--secondary)] transition hover:scale-105 hover:bg-[var(--secondary)]/15 sm:w-auto"
                     >
                       View Project
                       <ExternalLink className="h-4 w-4" />
@@ -149,7 +149,7 @@ export function ProjectsSection({ projects, portfolioUrl, githubUrl }: ProjectsS
                       href={sourceHref}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 rounded-md border border-[var(--primary)]/35 px-4 py-2 text-sm text-[var(--foreground)]/88 transition hover:scale-105 hover:bg-[var(--primary)]/15"
+                      className="inline-flex w-full items-center justify-center gap-2 rounded-md border border-[var(--primary)]/35 px-4 py-2 text-sm text-[var(--foreground)]/88 transition hover:scale-105 hover:bg-[var(--primary)]/15 sm:w-auto"
                     >
                       Source Code
                       <Github className="h-4 w-4" />
@@ -157,7 +157,7 @@ export function ProjectsSection({ projects, portfolioUrl, githubUrl }: ProjectsS
                     <button
                       type="button"
                       onClick={openProjectDetail}
-                      className="inline-flex items-center gap-2 rounded-md border border-[var(--primary)]/40 px-4 py-2 text-sm text-[var(--foreground)]/88 transition hover:scale-105 hover:bg-[var(--primary)]/15"
+                      className="inline-flex w-full items-center justify-center gap-2 rounded-md border border-[var(--primary)]/40 px-4 py-2 text-sm text-[var(--foreground)]/88 transition hover:scale-105 hover:bg-[var(--primary)]/15 sm:w-auto"
                     >
                       Expanded View
                     </button>

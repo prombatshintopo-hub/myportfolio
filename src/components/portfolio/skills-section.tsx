@@ -40,8 +40,8 @@ export function SkillsSection({ skills }: { skills: SkillItem[] }) {
   };
 
   return (
-    <section id="skills" className="py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
+    <section id="skills" className="py-20 sm:py-28 lg:py-32">
+      <div className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-12">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -51,7 +51,7 @@ export function SkillsSection({ skills }: { skills: SkillItem[] }) {
           <p className="text-xs tracking-[0.2em] text-[var(--secondary)] uppercase">Skills</p>
           <a
             href="#experience"
-            className="group mt-4 inline-flex items-center gap-2 font-display text-4xl tracking-tight text-[var(--foreground)] transition hover:text-[var(--secondary)] sm:text-5xl"
+            className="group mt-4 inline-flex items-center gap-2 font-display text-3xl tracking-tight text-[var(--foreground)] transition hover:text-[var(--secondary)] sm:text-5xl"
           >
             Core Competencies
             <ArrowUpRight className="h-6 w-6 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
@@ -63,7 +63,7 @@ export function SkillsSection({ skills }: { skills: SkillItem[] }) {
 
         <div
           ref={ref}
-          className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
+          className="mt-10 grid gap-4 sm:mt-12 sm:gap-5 sm:grid-cols-2 lg:grid-cols-3"
         >
           {skills.map((skill, index) => {
             const Icon = skillIcons[index % skillIcons.length];
@@ -76,7 +76,7 @@ export function SkillsSection({ skills }: { skills: SkillItem[] }) {
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 whileHover={{ y: -5 }}
-                className="group rounded-[10px] border border-[var(--primary)]/20 bg-[var(--card)]/75 p-6 text-left backdrop-blur-md transition-colors hover:border-[var(--secondary)]/45 hover:bg-[rgba(17,24,20,0.9)]"
+                className="group rounded-[10px] border border-[var(--primary)]/20 bg-[var(--card)]/75 p-5 text-left backdrop-blur-md transition-colors hover:border-[var(--secondary)]/45 hover:bg-[rgba(17,24,20,0.9)] sm:p-6"
               >
                 <div className="inline-flex h-12 w-12 items-center justify-center rounded-md bg-[var(--primary)]/12 text-[var(--secondary)]">
                   <Icon className="h-5 w-5" />

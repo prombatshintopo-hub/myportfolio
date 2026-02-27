@@ -29,8 +29,8 @@ export function ExperienceSection({ experiences, certifications }: ExperienceSec
   };
 
   return (
-    <section id="experience" className="py-24 sm:py-32">
-      <div ref={ref} className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
+    <section id="experience" className="py-20 sm:py-28 lg:py-32">
+      <div ref={ref} className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-12">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -38,7 +38,7 @@ export function ExperienceSection({ experiences, certifications }: ExperienceSec
           className="max-w-3xl"
         >
           <p className="text-xs tracking-[0.2em] text-[var(--secondary)] uppercase">Experience</p>
-          <h2 className="mt-4 font-display text-4xl tracking-tight text-[var(--foreground)] sm:text-5xl">
+          <h2 className="mt-4 font-display text-3xl tracking-tight text-[var(--foreground)] sm:text-5xl">
             Professional Timeline
           </h2>
           <p className="mt-4 text-base leading-relaxed text-[var(--foreground)]/78">
@@ -46,7 +46,7 @@ export function ExperienceSection({ experiences, certifications }: ExperienceSec
           </p>
         </motion.div>
 
-        <div className="mt-12 grid gap-6 lg:grid-cols-[1.12fr_0.88fr]">
+        <div className="mt-10 grid gap-6 sm:mt-12 xl:grid-cols-[1.12fr_0.88fr]">
           <div className="space-y-4">
             {experiences.map((experience, index) => (
               <motion.button
@@ -56,7 +56,7 @@ export function ExperienceSection({ experiences, certifications }: ExperienceSec
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: index * 0.08 }}
-                className="w-full rounded-[10px] border border-[var(--primary)]/20 bg-[var(--card)]/75 p-5 text-left backdrop-blur-md transition hover:border-[var(--secondary)]/45"
+                className="w-full rounded-[10px] border border-[var(--primary)]/20 bg-[var(--card)]/75 p-4 text-left backdrop-blur-md transition hover:border-[var(--secondary)]/45 sm:p-5"
               >
                 <p className="text-xs tracking-[0.14em] text-[var(--secondary)] uppercase">{experience.year}</p>
                 <h3 className="mt-2 text-xl font-medium text-[var(--foreground)]">{experience.name}</h3>
@@ -75,7 +75,7 @@ export function ExperienceSection({ experiences, certifications }: ExperienceSec
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="rounded-[10px] border border-[var(--primary)]/24 bg-[var(--card)]/78 p-6 backdrop-blur-md"
+            className="rounded-[10px] border border-[var(--primary)]/24 bg-[var(--card)]/78 p-5 backdrop-blur-md sm:p-6"
           >
             <p className="text-xs tracking-[0.16em] text-[var(--secondary)] uppercase">Certifications</p>
             <ul className="mt-4 space-y-3">

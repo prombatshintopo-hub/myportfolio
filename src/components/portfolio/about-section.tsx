@@ -15,23 +15,23 @@ export function AboutSection({ summary, years, projects, satisfaction }: AboutSe
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="about" className="py-24 sm:py-32">
-      <div ref={ref} className="mx-auto grid max-w-7xl gap-10 px-6 md:grid-cols-2 md:items-center sm:px-8 lg:px-12">
+    <section id="about" className="py-20 sm:py-28 lg:py-32">
+      <div ref={ref} className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-8 md:grid-cols-2 md:items-center lg:px-12">
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={isInView ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.7, ease: 'easeOut' }}
           className="relative"
         >
-          <div className="absolute -right-3 -top-3 h-28 w-28 rounded-md border border-[var(--secondary)]/45" />
-          <div className="relative h-[420px] overflow-hidden rounded-[10px] border border-[var(--secondary)]/30 bg-[linear-gradient(160deg,#101915,#0d1412_55%,#0a110f)] p-7 sm:h-[500px]">
+          <div className="absolute -right-2 -top-2 h-24 w-24 rounded-md border border-[var(--secondary)]/45 sm:-right-3 sm:-top-3 sm:h-28 sm:w-28" />
+          <div className="relative min-h-[370px] overflow-hidden rounded-[10px] border border-[var(--secondary)]/30 bg-[linear-gradient(160deg,#101915,#0d1412_55%,#0a110f)] p-5 sm:min-h-[500px] sm:p-7">
             <div className="absolute right-8 top-10 h-28 w-28 rounded-full bg-[var(--secondary)]/12 blur-2xl" />
             <div className="absolute bottom-12 left-8 h-36 w-36 rounded-full bg-[var(--primary)]/16 blur-2xl" />
 
             <div className="relative flex h-full flex-col justify-between">
               <div>
                 <p className="text-xs tracking-[0.18em] text-[var(--secondary)] uppercase">Profile Snapshot</p>
-                <h3 className="mt-3 font-display text-3xl text-[var(--foreground)] sm:text-4xl">
+                <h3 className="mt-3 font-display text-2xl text-[var(--foreground)] sm:text-4xl">
                   Systems + Security + Delivery
                 </h3>
               </div>
@@ -56,19 +56,19 @@ export function AboutSection({ summary, years, projects, satisfaction }: AboutSe
           transition={{ duration: 0.7, delay: 0.15, ease: 'easeOut' }}
         >
           <p className="text-xs tracking-[0.2em] text-[var(--secondary)] uppercase">About</p>
-          <h2 className="mt-4 font-display text-4xl tracking-tight text-[var(--foreground)] sm:text-5xl">
+          <h2 className="mt-4 font-display text-3xl tracking-tight text-[var(--foreground)] sm:text-5xl">
             Professional Profile
           </h2>
           <p className="mt-6 text-base leading-relaxed text-[var(--foreground)]/82 sm:text-lg">
             {summary}
           </p>
 
-          <div className="mt-10 grid grid-cols-3 gap-4">
+          <div className="mt-8 grid grid-cols-1 gap-3 sm:mt-10 sm:grid-cols-3 sm:gap-4">
             <a
               href="#experience"
               className="rounded-[10px] border border-[var(--primary)]/25 bg-[var(--card)]/75 p-4 transition hover:border-[var(--secondary)]/45"
             >
-              <div className="text-3xl font-semibold text-[var(--secondary)]">{years}+</div>
+              <div className="text-2xl font-semibold text-[var(--secondary)] sm:text-3xl">{years}+</div>
               <div className="mt-2 border-t border-[var(--primary)]/30 pt-2 text-xs tracking-[0.14em] text-[var(--muted-foreground)] uppercase">
                 Years
               </div>
@@ -77,7 +77,7 @@ export function AboutSection({ summary, years, projects, satisfaction }: AboutSe
               href="#projects"
               className="rounded-[10px] border border-[var(--primary)]/25 bg-[var(--card)]/75 p-4 transition hover:border-[var(--secondary)]/45"
             >
-              <div className="text-3xl font-semibold text-[var(--secondary)]">{projects}+</div>
+              <div className="text-2xl font-semibold text-[var(--secondary)] sm:text-3xl">{projects}+</div>
               <div className="mt-2 border-t border-[var(--primary)]/30 pt-2 text-xs tracking-[0.14em] text-[var(--muted-foreground)] uppercase">
                 Projects
               </div>
@@ -86,7 +86,7 @@ export function AboutSection({ summary, years, projects, satisfaction }: AboutSe
               href="#contact"
               className="rounded-[10px] border border-[var(--primary)]/25 bg-[var(--card)]/75 p-4 transition hover:border-[var(--secondary)]/45"
             >
-              <div className="text-3xl font-semibold text-[var(--secondary)]">{satisfaction}</div>
+              <div className="text-2xl font-semibold text-[var(--secondary)] sm:text-3xl">{satisfaction}</div>
               <div className="mt-2 border-t border-[var(--primary)]/30 pt-2 text-xs tracking-[0.14em] text-[var(--muted-foreground)] uppercase">
                 Satisfaction
               </div>

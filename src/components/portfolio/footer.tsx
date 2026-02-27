@@ -43,7 +43,7 @@ export function Footer({
 
   return (
     <footer className="border-t border-[var(--primary)]/20 bg-[var(--background)]">
-      <div className="mx-auto grid max-w-7xl gap-10 px-6 py-12 sm:px-8 md:grid-cols-3 lg:px-12">
+      <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-8 md:grid-cols-3 lg:px-12">
         <div>
           <div className="font-display text-xl tracking-[0.2em] text-[var(--foreground)] uppercase">
             M<span className="text-[var(--primary)]">N</span>
@@ -102,7 +102,7 @@ export function Footer({
       </div>
 
       <div className="border-t border-[var(--primary)]/20">
-        <div className="mx-auto max-w-7xl px-6 py-4 text-xs text-[var(--muted-foreground)] sm:px-8 lg:px-12">
+        <div className="mx-auto max-w-7xl px-4 py-4 text-xs text-[var(--muted-foreground)] sm:px-8 lg:px-12">
           Copyright {currentYear}. {name}. All rights reserved.
         </div>
       </div>
