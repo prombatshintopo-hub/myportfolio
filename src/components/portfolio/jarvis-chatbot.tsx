@@ -11,7 +11,7 @@ type ChatMessage = {
 
 const starter: ChatMessage = {
   role: 'assistant',
-  content: 'Hello, I am Mbatshi AI. What do you want to know about Mbatshi?'
+  content: 'Hi, I am Mbatshi AI. Ask me about Mbatshi :)'
 };
 
 const quickPrompts = [
